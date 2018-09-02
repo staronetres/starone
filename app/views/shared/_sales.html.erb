@@ -1,0 +1,50 @@
+<% @sale_products.each do |product| %>
+ <div class="product col-md-3 col-sm-6">
+
+      <div class="">
+      
+          
+            
+         <%= link_to image_tag(product.image.url, class: 'card-img-top img-fluid') %>
+      </a>
+      <div class="attr-group">
+        <% if product.sale.present? %>
+          <span class="sale">Sale</span>
+          <%= product.sale %>
+          <% end %>
+      </div>
+
+
+    
+     
+     
+      
+  </div>
+  <div class="product-info">
+      <%= button_to product_items_path(product_id: product), class: 'btn btn-default' do %>
+  <i class="fa fa-shopping-cart"></i> Add to cart
+  <% end %>
+      <h5 class="product-name"><a href="#"><%= product.title %></a></h5>
+      <div class="rating" itemtype="http://schema.org/Offer" itemscope>
+          <div class="star_rating" itemtype="http://schema.org/AggregateRating" itemscope itemprop="aggregateRating">
+              <span class="star star_full"></span>
+              <span class="star star_full"></span>
+              <span class="star star_full"></span>
+              <span class="star star_full"></span>
+              <span class="star star_half"></span>
+              <meta itemprop="worstRating" content="0">
+              <meta itemprop="ratingValue" content="4.5">
+              <meta itemprop="bestRating" content="5">
+          </div>
+      </div>
+      <p class="price">
+
+          <span class="discount-price"><%= number_to_currency product.price %></span>
+          <!-- <span class="discount-price">$60.80</span> -->
+         <!--  <span class="regular-price">$80.99</span> -->
+      </p>
+
+  </div>
+    
+</div>
+<% end %>
