@@ -15,7 +15,7 @@
 
           <% end %>
               <div class="card mb-4 box-shadow">
-                 <%= link_to image_tag(product.image.url, class: 'card-img-top img-fluid') %>
+                 <%= link_to image_tag(product.image.url, class: 'card-img-top img-fluid'), listing_path(product) %>
                 <div class="card-body">
                   <p class="card-text"><%= product.title %></p>
                   <p class="card-text"><%= number_to_currency product.price %></p>

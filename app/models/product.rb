@@ -1,9 +1,11 @@
 class Product < ApplicationRecord
 
       before_destroy :ensure_not_product_item
+      
+  has_many :product_tools
+  has_many :tools, through: :product_tools
 
-
-    belongs_to :category
+    # belongs_to :category
     has_many :product_items
 
 
